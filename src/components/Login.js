@@ -1,16 +1,42 @@
-import React from "react";
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate, Link } from 'react-router-dom';
+
+const initialUser = {
+    username: '',
+    password: ''
+}
 
 const Login = () => {
+    const [user, setUser] = useState(initialUser);
+
+    let navigate = useNavigate();
+
+    const handleChange = e => {
+        setUser({
+            ...user,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        localStorage.setItem('name', 'User');
+        localStorage.setItem('Username', user.username);
+        localStorage.setItem('password', user.password);
+        navigate('/', { replace: true });
+    }
+
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <h1> Login </h1>
                 <label> Username </label>
                 <input
                     type='text'
                     name='username'
                     placeholder='Enter your username'
+                    value={user.username}
+                    onChange={handleChange}
                 />
                 <br/>
                 <label> Password </label>
@@ -18,13 +44,17 @@ const Login = () => {
                     type='password'
                     name='password'
                     placeholder='Enter your password'
+                    value={user.password}
+                    onChange={handleChange}
                 />
                 <input
                     type='submit'
                     name='submit'
                 />
             </form>
-            <p> Not a member? </p><Link to='/signup'>Sign up here </Link>
+            {console.log(user)}
+            <p> Not a member? </p>
+            <Link to='/signup'> Sign up here </Link>
         </div>
     )
 }
