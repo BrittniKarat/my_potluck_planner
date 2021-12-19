@@ -1,56 +1,32 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { Link, Route, Routes, Outlet} from 'react-router-dom';
+// import { useEffect, useState } from 'react';
 import './App.css';
 
+import Home from './components/Home';
+import Potluck from './components/Potluck';
+import Login from './components/Login';
+import Invites from './components/Invites'
+
 function App() {
-  const [date, setDate] = useState(null);
-  useEffect(() => {
-    async function getDate() {
-      const res = await fetch('/api/date');
-      const newDate = await res.text();
-      setDate(newDate);
-    }
-    getDate();
-  }, []);
+
   return (
-    <main>
-      <h1>Create React App + Go API</h1>
-      <h2>
-        Deployed with{' '}
-        <a
-          href="https://vercel.com/docs"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Vercel
-        </a>
-        !
-      </h2>
-      <p>
-        <a
-          href="https://github.com/vercel/vercel/tree/main/examples/create-react-app"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          This project
-        </a>{' '}
-        was bootstrapped with{' '}
-        <a href="https://facebook.github.io/create-react-app/">
-          Create React App
-        </a>{' '}
-        and contains three directories, <code>/public</code> for static assets,{' '}
-        <code>/src</code> for components and content, and <code>/api</code>{' '}
-        which contains a serverless <a href="https://golang.org/">Go</a>{' '}
-        function. See{' '}
-        <a href="/api/date">
-          <code>api/date</code> for the Date API with Go
-        </a>
-        .
-      </p>
-      <br />
-      <h2>The date according to Go is:</h2>
-      <p>{date ? date : 'Loading date...'}</p>
-    </main>
+    <div>
+      <h1>Potluck planner</h1>
+      <nav>
+        <Link to='/'> Home </Link>
+        <Link to='/mypotlucks'> My Potlucks </Link>
+        <Link to='/invites'> Invites </Link>
+        <Link to='/login'> Login </Link>
+        <Outlet/>
+      </nav>
+    <Routes>
+      <Route exact path='/' element={<Home/>} />
+      <Route exact path='/login' element={<Login/>} />
+      <Route exact path='/mypotlucks' element={<Potluck/>} />
+      <Route exact path='/invites' element={<Invites/>} />
+    </Routes>
+    </div>
   );
 }
 
