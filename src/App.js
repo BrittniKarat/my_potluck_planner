@@ -15,8 +15,13 @@ import Logout from './components/Logout';
 
 const StyledDiv = styled.div`
   font-family: 'Caveat', cursive;
+
   h1{
     font-size: 4rem;
+  }
+
+  h2 {
+    margin-top: 1.5em;
   }
 
   Footer, Header nav{
@@ -26,11 +31,19 @@ const StyledDiv = styled.div`
     display: flex;
     justify-content: space-between;
   }
+  a:hover{
+    text-decoration: underline;
+  }
 
   Footer a, Header nav a{
     text-shadow: 2px 2px 5px #000000;
     color: #FFFFFF;
   }
+
+  Footer a:hover, Header nav a:hover{
+    text-decoration: none;
+  }
+
 `
 
 

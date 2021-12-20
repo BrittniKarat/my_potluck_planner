@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const FormDiv = styled.div`
+    font-size: 1.5rem;
+`
 
 const initialUser = {
     username: '',
@@ -29,7 +34,7 @@ const Login = (props) => {
     }
 
     return (
-        <div>
+        <FormDiv>
             <form onSubmit={handleSubmit}>
                 <h1> Login </h1>
                 <label> Username </label>
@@ -57,7 +62,7 @@ const Login = (props) => {
             {console.log(user)}
             <p> Not a member? </p>
             <Link to='/signup'> Sign up here </Link>
-        </div>
+        </FormDiv>
     )
 }
 
