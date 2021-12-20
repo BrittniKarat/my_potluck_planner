@@ -29,8 +29,8 @@ a {
   transition: all 0.2s ease;
 }
 a:hover {
-  transition: 2s ease-in-out;
-  transform: scale(1.5);
+  transition: .1s ease-in-out;
+  transform: scale(1.1);
 }
 code,
 pre {
