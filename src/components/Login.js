@@ -54,7 +54,6 @@ const Login = (props) => {
                     name='submit'
                 />
             </form>
-            {console.log(user)}
             <p> Not a member? </p>
             <Link to='/signup'> Sign up here </Link>
         </div>
