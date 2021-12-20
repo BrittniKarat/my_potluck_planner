@@ -27,7 +27,8 @@ const StyledDiv = styled.div`
     justify-content: space-between;
   }
 
-  a {
+  Footer a, Header nav a{
+    text-shadow: 2px 2px 5px #000000;
     color: #FFFFFF;
   }
 `
@@ -40,7 +41,7 @@ function App() {
     <StyledDiv>
       <Header loggedOut={loggedOut}/>
       <Routes>
-        <Route exact path='/' element={<Home/>} />
+        <Route exact path='/' element={<Home loggedOut={loggedOut}/>} />
         <Route exact path='/mypotlucks' element={<Potluck/>} />
         <Route exact path='/invites' element={<Invites/>} />
         <Route exact path='/login' element={<Login setLoggedOut={setLoggedOut}/>} />
