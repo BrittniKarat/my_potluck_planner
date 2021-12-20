@@ -6,8 +6,9 @@ const initialUser = {
     password: ''
 }
 
-const Login = () => {
+const Login = (props) => {
     const [user, setUser] = useState(initialUser);
+    const { setLoggedOut } = props;
 
     let navigate = useNavigate();
 
@@ -23,6 +24,7 @@ const Login = () => {
         localStorage.setItem('name', 'User');
         localStorage.setItem('Username', user.username);
         localStorage.setItem('password', user.password);
+        setLoggedOut(false);
         navigate('/', { replace: true });
     }
 
