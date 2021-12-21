@@ -31,6 +31,7 @@ const StyledDiv = styled.div`
     display: flex;
     justify-content: space-between;
   }
+
   a:hover{
     text-decoration: underline;
   }
