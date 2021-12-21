@@ -12,6 +12,9 @@ import Invites from './components/Invites';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Logout from './components/Logout';
+import Contact from './components/pages/Contact';
+import FAQ from './components/pages/faq/FAQ';
+
 
 const StyledDiv = styled.div`
   font-family: 'Caveat', cursive;
@@ -31,7 +34,6 @@ const StyledDiv = styled.div`
     display: flex;
     justify-content: space-between;
   }
-
   a:hover{
     text-decoration: underline;
   }
@@ -61,6 +63,8 @@ function App() {
         <Route exact path='/login' element={<Login setLoggedOut={setLoggedOut}/>} />
         <Route exact path='/signup' element={<Signup setLoggedOut={setLoggedOut}/>}/>
         <Route exact path='/logout' element={<Logout setLoggedOut={setLoggedOut}/>}/>
+        <Route exact path='/contact' element={<Contact/>}/>
+        <Route exact path='/faq' element={<FAQ/>}/>
       </Routes>
       <Footer />
     </StyledDiv>
