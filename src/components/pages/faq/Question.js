@@ -9,6 +9,7 @@ const StyledQuestion = styled.div`
     width: 60%;
     display: flex;
     justify-content: space-between;
+    font-size: 1.25rem;
 
     button{
         border:none;
