@@ -59,7 +59,7 @@ function App() {
         <Route exact path='/mypotlucks' element={<Potluck/>} />
         <Route exact path='/invites' element={<Invites/>} />
         <Route exact path='/login' element={<Login setLoggedOut={setLoggedOut}/>} />
-        <Route exact path='/signup' element={<Signup/>}/>
+        <Route exact path='/signup' element={<Signup setLoggedOut={setLoggedOut}/>}/>
         <Route exact path='/logout' element={<Logout setLoggedOut={setLoggedOut}/>}/>
       </Routes>
       <Footer />
