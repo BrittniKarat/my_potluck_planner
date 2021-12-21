@@ -13,8 +13,8 @@ const StyledFAQ = styled.div`
 const FAQ = (props) => {
     return (
         <StyledFAQ>
-            <Question question={'How do you sign up?'} answer={'You go to our sign up page and enter your information!'} link={'/signup'} linkText={'Sign up page'} />
-            <Question question={'How do you sign up?'} answer={'You go to our sign up page and enter your information!'} />
+            <Question question={'How do you sign up?'} answer={'You go to our sign up page and enter your information!'} link={'/signup'} linkText={'Sign Up page'} />
+            <Question question={'Where do you login?'} answer={'You go to our login page and enter your username and password!'} link={'/login'} linkText={'Login page'}/>
         </StyledFAQ>
     )
 }

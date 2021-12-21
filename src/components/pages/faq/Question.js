@@ -24,18 +24,20 @@ const StyledAnswer = styled.div`
     border: 2px solid black;
     border-radius: 10px;
     background-color: #FFCC96;
-    text-shadow: 2px 2px 2px black;
+    text-shadow: 1px 1px 1px black;
     color: white;
     height: auto;
     width: 60%;
     font-size: 1rem;
 
+    a, p{
+        margin-left: 1%;
+    }
+
     a{
-        margin: 4% 0;
         font-size: 1.2rem;
         text-shadow: none;
         border-bottom: none;
-        
     }
 `
 
