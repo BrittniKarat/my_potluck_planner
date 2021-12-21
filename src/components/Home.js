@@ -23,12 +23,10 @@ const StyledLogoutDiv = styled.div`
 `
 
 const Home = (props) => {
-    const loggedIn = localStorage.getItem('name');
     const {loggedOut} = props;
 
     return (
         <StyledLogoutDiv>
-            {/* { loggedIn && <h1> Hi, {localStorage.getItem('name')} </h1>} */}
             { loggedOut && 
             <>
                 <h2>The Shared Lunchbox</h2>

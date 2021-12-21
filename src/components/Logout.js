@@ -8,8 +8,10 @@ const Logout = (props) => {
 
     useEffect(() => {
         localStorage.removeItem('name');
+        localStorage.removeItem('last');
         localStorage.removeItem('username');
         localStorage.removeItem('password');
+        localStorage.removeItem('email');
         setLoggedOut(true);
         navigate('/', { replace: true });
     }, [])

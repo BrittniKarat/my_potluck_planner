@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Signup = (props) => {
     const [newUser, setNewUser] = useState({
@@ -11,6 +11,8 @@ const Signup = (props) => {
     })
     const { setLoggedOut } = props;
 
+    let navigate = useNavigate();
+
     const handleChange = e => {
         setNewUser({
             ...newUser,
@@ -21,8 +23,9 @@ const Signup = (props) => {
     const handleSubmit = e => {
         e.preventDefault();
         localStorage.setItem('name', newUser.first);
-        localStorage.setItem('Username', newUser.username);
-        localStorage.setItem('password', newUser.password);
+        localStorage.setItem('last', newUser.last);
+        localStorage.setItem('username', newUser.username);
+        localStorage.setItem('password', newUser.password);        localStorage.setItem('email', newUser.email);
         setLoggedOut(false);
         navigate('/', { replace: true });
     }
@@ -34,7 +37,7 @@ const Signup = (props) => {
              <label> First Name </label>
                 <input
                     type='text'
-                    name='firstName'
+                    name='first'
                     value={newUser.first}
                     onChange={handleChange}
                 />
@@ -42,7 +45,7 @@ const Signup = (props) => {
                 <label> Last Name </label>
                 <input
                     type='text'
-                    name='lastName'
+                    name='last'
                     value={newUser.last}
                     onChange={handleChange}
                 />
@@ -87,6 +90,7 @@ const Signup = (props) => {
                     type='submit'
                     name='submit'
                 />
+                {console.log(newUser)}
             </form>
             <p> Already a member? </p><Link to='/login'> Login here </Link>
         </div>
