@@ -1,7 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from 'react-router-dom';
 
+import * as yup from 'yup';
+import schema from "../Validation/formSchema";
+
+const initialErrors = {
+    first: '',
+    last: '',
+    username: '',
+    email:'',
+    password:''
+}
+
 const Signup = (props) => {
+    const [disabled, setDisabled] = useState(true);
     const [newUser, setNewUser] = useState({
         first: '',
         last: '',
@@ -9,19 +21,31 @@ const Signup = (props) => {
         email:'',
         password:''
     })
+    const [formErrors, setFormErrors] = useState(initialErrors)
     const { setLoggedOut } = props;
 
     let navigate = useNavigate();
 
-    const handleChange = e => {
+    const validate = (name, value) => {
+        yup.reach(schema, name)
+          .validate(value)
+          .then(() =>  setFormErrors({...formErrors, [name]: ''}))
+          .catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0]}))
+      };
+
+    const handleChange = async (e) => {
+        validate([e.target.name], e.target.value);
         setNewUser({
             ...newUser,
             [e.target.name] : e.target.value
         })
+        const isValid = await schema.isValid(newUser)
+        setDisabled(!isValid)
     }
 
     const handleSubmit = e => {
         e.preventDefault();
+
         localStorage.setItem('name', newUser.first);
         localStorage.setItem('last', newUser.last);
         localStorage.setItem('username', newUser.username);
@@ -41,7 +65,7 @@ const Signup = (props) => {
                     value={newUser.first}
                     onChange={handleChange}
                 />
-                <br/>
+                <h3>  {formErrors.first}</h3>
                 <label> Last Name </label>
                 <input
                     type='text'
@@ -49,7 +73,7 @@ const Signup = (props) => {
                     value={newUser.last}
                     onChange={handleChange}
                 />
-                <br/>
+                <h3>  {formErrors.last}</h3>
                 <label> Username </label>
                 <input
                     type='username'
@@ -57,7 +81,7 @@ const Signup = (props) => {
                     value={newUser.username}
                     onChange={handleChange}
                 />
-                <br/>
+                <h3>  {formErrors.username}</h3>
                 <label> Email </label>
                 <input
                     type='email'
@@ -65,13 +89,7 @@ const Signup = (props) => {
                     value={newUser.email}
                     onChange={handleChange}
                 />
-                <br/>
-             <label> Re-enter your email </label>
-                <input
-                    type='email'
-                    name='confirmEmail'
-                />
-                <br/>
+                <h3>  {formErrors.email}</h3>
              <label> Password </label>
                 <input
                     type='password'
@@ -79,18 +97,12 @@ const Signup = (props) => {
                     value={newUser.password}
                     onChange={handleChange}
                 />
-                <br/>
-             <label> Re-enter your password </label>
-                <input
-                    type='password'
-                    name='confirmPassword'
-                />
-                <br/>
+                <h3>  {formErrors.password}</h3>
                 <input
                     type='submit'
                     name='submit'
+                    disabled={disabled}
                 />
-                {console.log(newUser)}
             </form>
             <p> Already a member? </p><Link to='/login'> Login here </Link>
         </div>
