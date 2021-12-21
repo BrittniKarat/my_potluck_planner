@@ -4,6 +4,9 @@ import { Route, Routes } from 'react-router-dom';
 import styled from "styled-components";
 import './App.css';
 
+import * as yup from 'yup';
+import schema from './Validation/formSchema';
+
 import Header from './components/constants/Header';
 import Footer from './components/constants/Footer';
 import Home from './components/Home';
@@ -47,9 +50,11 @@ const StyledDiv = styled.div`
 
 `
 
-
 function App() {
   const [loggedOut, setLoggedOut] = useState(true);
+  const [disabled, setDisabled] = useState(true);
+
+
 
   return (
     <StyledDiv>
@@ -59,8 +64,8 @@ function App() {
         <Route exact path='/mypotlucks' element={<Potluck/>} />
         <Route exact path='/invites' element={<Invites/>} />
         <Route exact path='/login' element={<Login setLoggedOut={setLoggedOut}/>} />
-        <Route exact path='/signup' element={<Signup setLoggedOut={setLoggedOut}/>}/>
-        <Route exact path='/logout' element={<Logout setLoggedOut={setLoggedOut}/>}/>
+        <Route exact path='/signup' element={<Signup  setLoggedOut={setLoggedOut} disabled={disabled} setDisabled={setDisabled}/>}/>
+        <Route exact path='/logout' element={<Logout setLoggedOut={setLoggedOut} disabled={disabled} setDisabled={setDisabled}/>}/>
       </Routes>
       <Footer />
     </StyledDiv>
