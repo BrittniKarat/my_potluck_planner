@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
 const StyledQuestion = styled.div`
-    margin-top: .5%;
     border: 2px solid black;
     border-radius: 10px;
     width: 60%;
@@ -49,7 +48,7 @@ const Question = (props) => {
     return (
         <>
             <StyledQuestion onClick={() => setOpen(!open)}>
-                <h3>{question}</h3>
+                <h2>{question}</h2>
                 <button>{open ? <>&#9650;</>: <>&#9660;</>}</button>
             </StyledQuestion>
             {open && (
