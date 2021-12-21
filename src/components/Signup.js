@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from 'react-router-dom';
 
 import * as yup from 'yup';
@@ -13,6 +13,7 @@ const initialErrors = {
 }
 
 const Signup = (props) => {
+    const [disabled, setDisabled] = useState(true);
     const [newUser, setNewUser] = useState({
         first: '',
         last: '',
@@ -21,7 +22,7 @@ const Signup = (props) => {
         password:''
     })
     const [formErrors, setFormErrors] = useState(initialErrors)
-    const { setLoggedOut, disabled, setDisabled } = props;
+    const { setLoggedOut } = props;
 
     let navigate = useNavigate();
 
