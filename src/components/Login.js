@@ -17,14 +17,14 @@ const Login = (props) => {
 
     let navigate = useNavigate();
 
-    const handleChange = e => {
+    const handleChange = (e) => {
         setUser({
             ...user,
             [e.target.name]: e.target.value
         })
     }
 
-    const handleSubmit = e => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         localStorage.setItem('name', 'User');
         localStorage.setItem('Username', user.username);
