@@ -46,6 +46,14 @@ const StyledDiv = styled.div`
   Footer a:hover, Header nav a:hover{
     text-decoration: none;
   }
+  @media screen and (max-width: 767px){
+   Header nav a {
+     font-size: 1.5rem
+   }
+   Footer a{
+     font-size: 1.9rem;
+   }
+  }
 
 `
 
