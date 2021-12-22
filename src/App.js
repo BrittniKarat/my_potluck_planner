@@ -6,7 +6,7 @@ import './App.css';
 
 import Header from './components/constants/Header';
 import Footer from './components/constants/Footer';
-import Home from './components/Home';
+import Home from './components/pages/home/Home';
 import Potluck from './components/Potluck';
 import Invites from './components/Invites';
 import Login from './components/Login';
