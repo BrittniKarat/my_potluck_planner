@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import LoggedOut from "./LoggedOut";
+import LoggedIn from "./loggedIn/LoggedIn";
 
 const StyledLogout = styled.div`
     text-align: center;
@@ -27,7 +28,7 @@ const Home = (props) => {
 
     return (
         <StyledLogout>
-            {!loggedOut && <h3> Hi, {localStorage.getItem('name')} </h3>}
+            {!loggedOut && <LoggedIn />}
             { loggedOut && <LoggedOut />}
         </StyledLogout>
     )

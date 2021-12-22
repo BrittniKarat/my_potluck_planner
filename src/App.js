@@ -12,7 +12,7 @@ import Invites from './components/Invites';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Logout from './components/Logout';
-import Contact from './components/pages/Contact';
+import Contact from './components/pages/contact/Contact';
 import FAQ from './components/pages/faq/FAQ';
 
 
