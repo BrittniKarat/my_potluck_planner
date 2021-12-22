@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 const FormDiv = styled.div`
     font-size: 1.5rem;
+    text-align: center;
+    
 `
 
 const initialUser = {
