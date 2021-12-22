@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from 'react-router-dom';
-
+import styled from 'styled-components';
 import * as yup from 'yup';
 import schema from "../Validation/formSchema";
+
+const StyledDiv = styled.div`
+text-align: center;
+input{
+    width: 30%;
+}
+a{
+    font-size: 2rem
+}
+`
 
 const initialErrors = {
     first: '',
@@ -55,7 +65,7 @@ const Signup = (props) => {
     }
 
     return (
-        <div>
+        <StyledDiv>
             <form onSubmit={handleSubmit}>
                 <h1> Sign Up </h1>
              <label> First Name </label>
@@ -105,7 +115,7 @@ const Signup = (props) => {
                 />
             </form>
             <p> Already a member? </p><Link to='/login'> Login here </Link>
-        </div>
+        </StyledDiv>
     )
 }
 
