@@ -24,6 +24,9 @@ const StyledRightSide = Styled.div`
     align-items: center;
     justify-content: center;
     border: 2px solid blue;
+    width: 50%;
+
+
 `
 
 const dummyEvents = [
