@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const StyledContact = styled.div`
     margin: 2% 0;
+    
     div{
         width: 100%;
         text-align: center;
